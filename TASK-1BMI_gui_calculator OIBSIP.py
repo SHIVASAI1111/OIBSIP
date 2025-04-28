@@ -13,7 +13,7 @@ data_file = 'bmi_data.csv'
 try:
     with open(data_file, 'x', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(["Timestamp", "Username", "Weight (kg)", "Height (feet)", "BMI", "Category"])
+        writer.writerow(["Timestamp", "Username", "Weight (kg)", "Height (Meter)", "BMI", "Category"])
 except FileExistsError:
     pass
 
@@ -44,11 +44,11 @@ def calculate_bmi():
         messagebox.showerror("Input Error", str(e))
 
 def classify_bmi(bmi):
-    if bmi < 6:
+    if bmi < 18.5:
         return "Underweight"
-    elif 6 <= bmi < 10:
+    elif 18.5 <= bmi < 24.9:
         return "Normal weight"
-    elif 10 <= bmi < 15:
+    elif 24.9 <= bmi < 30.0:
         return "Overweight"
     else:
         return "Obese"
@@ -100,7 +100,7 @@ tk.Label(window, text="Weight (kg):").pack()
 weight_entry = tk.Entry(window)
 weight_entry.pack()
 
-tk.Label(window, text="Height (feet):").pack()
+tk.Label(window, text="Height (Meter):").pack()
 height_entry = tk.Entry(window)
 height_entry.pack()
 
