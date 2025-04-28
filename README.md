@@ -1,2 +1,0 @@
-# OIBSIP
-python internship
